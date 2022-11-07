@@ -1,6 +1,7 @@
 package com.example.generatepdf
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.pdf.PdfDocument
 import android.widget.Toast
@@ -28,32 +29,38 @@ object GeneratePdf {
               otherSkills: String
     ) {
         val myPdfDocument = PdfDocument()
+
+        val paintForText = Paint()
+        paintForText.textSize = 40F
+        paintForText.color = Color.BLUE
+
         val myPaint = Paint()
+        myPaint.textSize = 20F
 
         val pageInfo = PdfDocument.PageInfo.Builder(400, 600, 1).create()
         val page = myPdfDocument.startPage(pageInfo)
         val canvas = page.canvas
-        canvas.drawText("Personal details: ",40F, 40F, myPaint)
-        canvas.drawText(userName, 40F, 50F, myPaint)
-        canvas.drawText(userMobile, 40F, 60F, myPaint)
-        canvas.drawText(userAddress, 40F, 70F, myPaint)
-        canvas.drawText(userEmail, 40F, 80F, myPaint)
+        canvas.drawText("Personal details: ",30F, 40F, paintForText)
+        canvas.drawText(userName, 30F, 60F, myPaint)
+        canvas.drawText(userMobile, 30F, 80F, myPaint)
+        canvas.drawText(userAddress, 30F, 100F, myPaint)
+        canvas.drawText(userEmail, 30F, 120F, myPaint)
 
-        canvas.drawText("Education details: ",40F, 90F, myPaint)
-        canvas.drawText(schoolName, 40F, 1000F, myPaint)
-        canvas.drawText(schoolMarks, 40F, 110F, myPaint)
-        canvas.drawText(collegeName, 40F, 120F, myPaint)
-        canvas.drawText(collegeMarks, 40F, 130F, myPaint)
-        canvas.drawText(diplomaCollegeName, 40F, 140F, myPaint)
-        canvas.drawText(diplomaCollegeMarks, 40F, 150F, myPaint)
-        canvas.drawText(degreeCollegeName, 40F, 160F, myPaint)
-        canvas.drawText(degreeMarks, 40F, 170F, myPaint)
+        canvas.drawText("Education details: ",30F, 160F, paintForText)
+        canvas.drawText(schoolName, 30F, 180F, myPaint)
+        canvas.drawText(schoolMarks, 30F, 200F, myPaint)
+        canvas.drawText(collegeName, 30F, 220F, myPaint)
+        canvas.drawText(collegeMarks, 30F, 240F, myPaint)
+        canvas.drawText(diplomaCollegeName, 30F, 260F, myPaint)
+        canvas.drawText(diplomaCollegeMarks, 30F, 280F, myPaint)
+        canvas.drawText(degreeCollegeName, 30F, 300F, myPaint)
+        canvas.drawText(degreeMarks, 30F, 320F, myPaint)
 
-        canvas.drawText("Skills details: ",40F, 180F, myPaint)
-        canvas.drawText(programmingLanguage, 40F, 190F, myPaint)
-        canvas.drawText(softwareTools, 40F, 200F, myPaint)
-        canvas.drawText(certification, 40F, 210F, myPaint)
-        canvas.drawText(otherSkills, 40F, 220F, myPaint)
+        canvas.drawText("Skills details: ",30F, 360F, paintForText)
+        canvas.drawText(programmingLanguage, 30F, 380F, myPaint)
+        canvas.drawText(softwareTools, 30F, 400F, myPaint)
+        canvas.drawText(certification, 30F, 420F, myPaint)
+        canvas.drawText(otherSkills, 30F, 440F, myPaint)
 
         myPdfDocument.finishPage(page)
 
