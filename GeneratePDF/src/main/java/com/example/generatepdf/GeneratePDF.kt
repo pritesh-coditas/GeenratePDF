@@ -31,11 +31,11 @@ object GeneratePdf {
         val myPdfDocument = PdfDocument()
 
         val paintForText = Paint()
-        paintForText.textSize = 40F
-        paintForText.color = Color.BLUE
+        paintForText.textSize = 25F
+        paintForText.color = Color.parseColor("#49599b")
 
         val myPaint = Paint()
-        myPaint.textSize = 20F
+        myPaint.textSize = 10F
 
         val pageInfo = PdfDocument.PageInfo.Builder(400, 600, 1).create()
         val page = myPdfDocument.startPage(pageInfo)
@@ -46,6 +46,8 @@ object GeneratePdf {
         canvas.drawText(userAddress, 30F, 100F, myPaint)
         canvas.drawText(userEmail, 30F, 120F, myPaint)
 
+        canvas.drawLine(140F,30F,140F,30F,paintForText)
+
         canvas.drawText("Education details: ",30F, 160F, paintForText)
         canvas.drawText(schoolName, 30F, 180F, myPaint)
         canvas.drawText(schoolMarks, 30F, 200F, myPaint)
@@ -55,6 +57,8 @@ object GeneratePdf {
         canvas.drawText(diplomaCollegeMarks, 30F, 280F, myPaint)
         canvas.drawText(degreeCollegeName, 30F, 300F, myPaint)
         canvas.drawText(degreeMarks, 30F, 320F, myPaint)
+
+        canvas.drawLine(330F,30F,330F,30F,paintForText)
 
         canvas.drawText("Skills details: ",30F, 360F, paintForText)
         canvas.drawText(programmingLanguage, 30F, 380F, myPaint)
