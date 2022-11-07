@@ -26,45 +26,60 @@ object GeneratePdf {
               programmingLanguage: String,
               softwareTools: String,
               certification: String,
-              otherSkills: String
+              otherSkills: String,
+              projectTitle:String,
+              projectDescription:String,
+              companyName:String,
+              companyExperienceYear:String,
+              totalExperience:String
     ) {
         val myPdfDocument = PdfDocument()
 
-        val paintForText = Paint()
-        paintForText.textSize = 25F
-        paintForText.color = Color.parseColor("#49599b")
+        val paintHead1 = Paint()
+        paintHead1.textSize = 25F
+        paintHead1.color = Color.parseColor("#FF03DAC5")
 
-        val myPaint = Paint()
-        myPaint.textSize = 10F
+        val paintHead2 = Paint()
+        paintHead2.textSize = 14F
+        paintHead1.color = Color.parseColor("#49599b")
+
+        val paintHead3 = Paint()
+        paintHead3.textSize = 12F
+        paintHead3.color = Color.BLACK
+
+        val paintNormalText = Paint()
+        paintNormalText.textSize = 10F
 
         val pageInfo = PdfDocument.PageInfo.Builder(400, 600, 1).create()
         val page = myPdfDocument.startPage(pageInfo)
         val canvas = page.canvas
-        canvas.drawText("Personal details: ",30F, 40F, paintForText)
-        canvas.drawText(userName, 30F, 60F, myPaint)
-        canvas.drawText(userMobile, 30F, 80F, myPaint)
-        canvas.drawText(userAddress, 30F, 100F, myPaint)
-        canvas.drawText(userEmail, 30F, 120F, myPaint)
+        canvas.drawText(userName,30F, 40F, paintHead1)
+        canvas.drawLine(30F, 30F, 370F, 370F, paintHead1)
 
-        canvas.drawLine(140F,30F,140F,30F,paintForText)
+        canvas.drawText("personal Details: ", 30F, 60F, paintNormalText)
+        canvas.drawText(userMobile, 30F, 80F, paintNormalText)
+        canvas.drawText(userAddress, 30F, 100F, paintNormalText)
+        canvas.drawText(userEmail, 30F, 120F, paintNormalText)
 
-        canvas.drawText("Education details: ",30F, 160F, paintForText)
-        canvas.drawText(schoolName, 30F, 180F, myPaint)
-        canvas.drawText(schoolMarks, 30F, 200F, myPaint)
-        canvas.drawText(collegeName, 30F, 220F, myPaint)
-        canvas.drawText(collegeMarks, 30F, 240F, myPaint)
-        canvas.drawText(diplomaCollegeName, 30F, 260F, myPaint)
-        canvas.drawText(diplomaCollegeMarks, 30F, 280F, myPaint)
-        canvas.drawText(degreeCollegeName, 30F, 300F, myPaint)
-        canvas.drawText(degreeMarks, 30F, 320F, myPaint)
+        canvas.drawLine(140F,30F,140F,30F,paintHead1)
 
-        canvas.drawLine(330F,30F,330F,30F,paintForText)
+        canvas.drawText("Education details: ",30F, 160F, paintHead1)
+        canvas.drawText(schoolName, 30F, 180F, paintNormalText)
+        canvas.drawText(schoolMarks, 30F, 200F, paintNormalText)
+        canvas.drawText(collegeName, 30F, 220F, paintNormalText)
+        canvas.drawText(collegeMarks, 30F, 240F, paintNormalText)
+        canvas.drawText(diplomaCollegeName, 30F, 260F, paintNormalText)
+        canvas.drawText(diplomaCollegeMarks, 30F, 280F, paintNormalText)
+        canvas.drawText(degreeCollegeName, 30F, 300F, paintNormalText)
+        canvas.drawText(degreeMarks, 30F, 320F, paintNormalText)
 
-        canvas.drawText("Skills details: ",30F, 360F, paintForText)
-        canvas.drawText(programmingLanguage, 30F, 380F, myPaint)
-        canvas.drawText(softwareTools, 30F, 400F, myPaint)
-        canvas.drawText(certification, 30F, 420F, myPaint)
-        canvas.drawText(otherSkills, 30F, 440F, myPaint)
+        canvas.drawLine(330F,30F,330F,30F,paintHead1)
+
+        canvas.drawText("Skills details: ",30F, 360F, paintHead1)
+        canvas.drawText(programmingLanguage, 30F, 380F, paintNormalText)
+        canvas.drawText(softwareTools, 30F, 400F, paintNormalText)
+        canvas.drawText(certification, 30F, 420F, paintNormalText)
+        canvas.drawText(otherSkills, 30F, 440F, paintNormalText)
 
         myPdfDocument.finishPage(page)
 
