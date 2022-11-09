@@ -169,12 +169,12 @@ object GeneratePdf {
 
         if(companyName.isNotEmpty()) {
             canvas.drawText("Experience details: ", 30F, y + 30F, paintHead2)
-            canvas.drawText("Company name :", 35F, y + 30F, paintHead3)
-            canvas.drawText(companyName, 120F, y + 30F, paintNormalText)
-            canvas.drawText("Experience in company :", 35F, y + 50F, paintHead3)
-            canvas.drawText(companyExperienceYear, 160F, y + 50F, paintNormalText)
-            canvas.drawText("Total Experience :", 35F, y + 70F, paintHead3)
-            canvas.drawText(totalExperience, 130F, y + 70F, paintNormalText)
+            canvas.drawText("Company name :", 35F, y + 50F, paintHead3)
+            canvas.drawText(companyName, 120F, y + 50F, paintNormalText)
+            canvas.drawText("Experience in company :", 35F, y + 70F, paintHead3)
+            canvas.drawText(companyExperienceYear, 160F, y + 70F, paintNormalText)
+            canvas.drawText("Total Experience :", 35F, y + 90F, paintHead3)
+            canvas.drawText(totalExperience, 130F, y + 90F, paintNormalText)
         }
 
         myPdfDocument.finishPage(page)
