@@ -89,7 +89,7 @@ object GeneratePdf {
         canvas.drawText("Email :", 35F, 110F, paintHead3) // email
         canvas.drawText(userEmail, 70F, 110F, paintNormalText)
         canvas.drawText("Address :", 35F, 130F, paintHead3) // address
-        // canvas.drawText(form.userAddress, 90F, 130F, paintNormalText)
+        // canvas.drawText(userAddress, 90F, 130F, paintNormalText)
 
         val userAddressTextLayout =
             StaticLayout(
@@ -108,24 +108,80 @@ object GeneratePdf {
 
         canvas.drawText("Education details :", 30F, 160F, paintHead2)
         canvas.drawText("School Name :", 35F, 180F, paintHead3) // 10th School name
-        canvas.drawText(schoolName, 40F, 200F, paintNormalText)
-        canvas.drawText(schoolMarks, 300F, 200F, paintBoldText)
-        canvas.drawText("College Name :", 35F, 220F, paintHead3)
-        canvas.drawText(collegeName, 40F, 240F, paintNormalText)
+        val schoolNameTextLayout =
+            StaticLayout(
+                schoolName,
+                paragraphText,
+                250,
+                Layout.Alignment.ALIGN_NORMAL,
+                1.0f,
+                0.0f,
+                true
+            )
+        canvas.save()
+        canvas.translate(40F, 185F)
+        schoolNameTextLayout.draw(canvas)
+        canvas.restore()
+        canvas.drawText(schoolMarks, 300F, 198F, paintBoldText)
+
+        canvas.drawText("College Name :", 35F, 225F, paintHead3)
+        // canvas.drawText(collegeName, 40F, 240F, paintNormalText)
+        val collegeNameTextLayout =
+            StaticLayout(
+                collegeName,
+                paragraphText,
+                250,
+                Layout.Alignment.ALIGN_NORMAL,
+                1.0f,
+                0.0f,
+                true
+            )
+        canvas.save()
+        canvas.translate(40F, 230F)
+        collegeNameTextLayout.draw(canvas)
+        canvas.restore()
         canvas.drawText(collegeMarks, 300F, 240F, paintBoldText)
 
-        y = 240F
+        y = 245F
 
         if(diplomaCollegeName.isNotEmpty()){
-            canvas.drawText("Diploma College Name :", 35F, y+20F, paintHead3)
-            canvas.drawText(diplomaCollegeName, 40F, y+40F, paintNormalText)
-            canvas.drawText(diplomaCollegeMarks, 300F, y+40F, paintBoldText)
-            y = 280F
+            canvas.drawText("Diploma College Name :", 35F, y+30F, paintHead3)
+            //  canvas.drawText(diplomaCollegeName, 40F, y+40F, paintNormalText)
+            val diplomaCollegeTextLayout =
+                StaticLayout(
+                    diplomaCollegeName,
+                    paragraphText,
+                    250,
+                    Layout.Alignment.ALIGN_NORMAL,
+                    1.0f,
+                    0.0f,
+                    true
+                )
+            canvas.save()
+            canvas.translate(40F, y+35F)
+            diplomaCollegeTextLayout.draw(canvas)
+            canvas.restore()
+            canvas.drawText(diplomaCollegeMarks, 300F, y+47F, paintBoldText)
+            y = 290F
         }
 
-        canvas.drawText("Degree College Name :", 35F, y+20F, paintHead3)
-        canvas.drawText(degreeCollegeName, 40F, y+40F, paintNormalText)
-        canvas.drawText(degreeMarks, 320F, y+40F, paintBoldText)
+        canvas.drawText("Degree College Name :", 35F, y+25F, paintHead3)
+        //    canvas.drawText(degreeCollegeName, 40F, y+40F, paintNormalText)
+        val degreeCollegeNameTextLayout =
+            StaticLayout(
+                degreeCollegeName,
+                paragraphText,
+                250,
+                Layout.Alignment.ALIGN_NORMAL,
+                1.0f,
+                0.0f,
+                true
+            )
+        canvas.save()
+        canvas.translate(40F, y+28F)
+        degreeCollegeNameTextLayout.draw(canvas)
+        canvas.restore()
+        canvas.drawText(degreeMarks, 300F, y+40F, paintBoldText)
 
         canvas.drawText("Skills details: ", 30F, y+70F, paintHead2)
         canvas.drawText("Programming languages :", 35F, y+90F, paintHead3)
@@ -143,7 +199,7 @@ object GeneratePdf {
         canvas.drawText("Project Description :", 35F, y+220F, paintHead3)
 
         /*       if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                  StaticLayout.Builder.obtain(form.projectDescription, 0, form.projectDescription.length, mTextPaint, 11)
+                  StaticLayout.Builder.obtain(projectDescription, 0, projectDescription.length, mTextPaint, 11)
                        .setAlignment(Layout.Alignment.ALIGN_NORMAL)
                        .setLineSpacing(1.0f, 0.0f)
                        .setIncludePad(false)
