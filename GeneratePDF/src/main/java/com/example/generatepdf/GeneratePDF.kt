@@ -17,8 +17,8 @@ object GeneratePdf {
 
     fun build(context: Context, userName:String,
               userMobile:String,
-              userAddress:String,
               userEmail:String,
+              userAddress:String,
               schoolName:String,
               schoolMarks:String,
               collegeName:String,
