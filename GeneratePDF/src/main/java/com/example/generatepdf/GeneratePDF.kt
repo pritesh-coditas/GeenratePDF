@@ -15,8 +15,6 @@ import java.io.IOException
 
 object GeneratePdf {
 
-    private val resumeTime: Long by lazy{ System.currentTimeMillis() }
-
     fun build(context: Context, userName:String,
               userMobile:String,
               userEmail:String,
@@ -37,7 +35,8 @@ object GeneratePdf {
               projectDescription:String,
               companyName:String,
               companyExperienceYear:String,
-              totalExperience:String
+              totalExperience:String,
+              resumeTime:String
     ) {
         val myPdfDocument = PdfDocument()
 
