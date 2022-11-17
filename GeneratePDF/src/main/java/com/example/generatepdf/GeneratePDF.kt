@@ -15,6 +15,8 @@ import java.io.IOException
 
 object GeneratePdf {
 
+    private val resumeTime: Long by lazy{ System.currentTimeMillis() }
+
     fun build(context: Context, userName:String,
               userMobile:String,
               userEmail:String,
@@ -234,8 +236,8 @@ object GeneratePdf {
         }
 
         myPdfDocument.finishPage(page)
-
-        val file = File(context.getExternalFilesDir("/"), "resumePDF.pdf")
+        val pdfName = "${userName}_${resumeTime}.pdf"
+        val file = File(context.getExternalFilesDir("/"), pdfName)
 
         try {
             myPdfDocument.writeTo(FileOutputStream(file))
